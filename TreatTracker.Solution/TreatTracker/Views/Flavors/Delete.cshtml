@@ -14,6 +14,6 @@
   <input type="submit" value="Yes, please remove this Flavor." />
 }
 
-<p>@Html.ActionLink($"Back to {Model.Type}", "Details", new { id = Model.FlavorId })</p>
+<p>@Html.ActionLink("Cancel Removal", "Details", new { id = Model.FlavorId })</p>
 <p>@Html.ActionLink("Back To All Flavors", "Index")</p>
 <p>@Html.ActionLink("Back To Home", "Index", "Home")</p>

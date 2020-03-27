@@ -13,6 +13,11 @@
   @foreach (var join in Model.Treats)
   {
     <p>@Html.ActionLink($"{join.Treat.Name}", "Details", "Treats", new { id = join.Treat.TreatId })</p>
+    @using (Html.BeginForm("DeleteTreat", "Flavors"))
+    {
+      @Html.Hidden("joinId", @join.TreatFlavorId)
+      <input type="submit" value="Remove This Treat" />
+    }
   }
 }
 else

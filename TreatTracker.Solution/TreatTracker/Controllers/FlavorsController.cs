@@ -95,5 +95,15 @@ namespace TreatTracker.Controllers
       return RedirectToAction("Details", new { id = flavor.FlavorId });
     }
 
+    [HttpPost]
+    public ActionResult DeleteTreat(int joinId)
+    {
+      var thisJoinEntry = _db.TreatFlavor.FirstOrDefault(entry => entry.TreatFlavorId == joinId);
+      int FlavorId = thisJoinEntry.FlavorId;
+      _db.TreatFlavor.Remove(thisJoinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = FlavorId });
+    }
+
   }
 }
