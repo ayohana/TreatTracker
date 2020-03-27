@@ -1,19 +1,19 @@
 @{
   Layout = "_Layout";
-  ViewBag.Title = "";
+  ViewBag.Title = "Add New Flavor";
 }
 
 @model TreatTracker.Models.Flavor
 
-@* <h4>Add a new task</h4>
+<h4>Add a New Flavor</h4>
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Description)
-  @Html.TextBoxFor(model => model.Description)
+  @Html.LabelFor(model => model.Type)
+  @Html.TextBoxFor(model => model.Type)
 
-  @Html.Label("Select category")
-  @Html.DropDownList("CategoryId")
+  @Html.Label("Select Treat")
+  @Html.DropDownList("TreatId")
 
-  <input type="submit" value="Add new item" class="btn btn-default" />
+  <input type="submit" value="Add New Flavor" />
 }
-<p>@Html.ActionLink("Show all items", "Index")</p> *@
+<p>@Html.ActionLink("Back To All Flavors", "Index")</p>

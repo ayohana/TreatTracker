@@ -16,38 +16,38 @@ namespace TreatTracker.Controllers
       _db = db;
     }
 
-    // public ActionResult Index()
-    // {
-    //   return View(_db.Items.ToList());
-    // }
+    public ActionResult Index()
+    {
+      return View(_db.Flavors.ToList());
+    }
 
 
-    // public ActionResult Details(int id)
-    // {
-    //   var thisItem = _db.Items
-    //       .Include(item => item.Categories)
-    //       .ThenInclude(join => join.Category)
-    //       .FirstOrDefault(item => item.ItemId == id);
-    //   return View(thisItem);
-    // }
+    public ActionResult Details(int id)
+    {
+      var thisFlavor = _db.Flavors
+          .Include(flavor => flavor.Treats)
+          .ThenInclude(join => join.Treat)
+          .FirstOrDefault(flavor => flavor.FlavorId == id);
+      return View(thisFlavor);
+    }
 
-    //  public ActionResult Create()
-    // {
-    //   ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
-    //   return View();
-    // }
+     public ActionResult Create()
+    {
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
+      return View();
+    }
 
-    // [HttpPost]
-    // public ActionResult Create(Item item, int CategoryId)
-    // {
-    //   _db.Items.Add(item);
-    //   if (CategoryId != 0)
-    //   {
-    //     _db.CategoryItem.Add(new CategoryItem() { CategoryId = CategoryId, ItemId = item.ItemId });
-    //   }
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult Create(Flavor flavor, int TreatId)
+    {
+      _db.Flavors.Add(flavor);
+      if (TreatId != 0)
+      {
+        _db.TreatFlavor.Add(new TreatFlavor() { TreatId = TreatId, FlavorId = flavor.FlavorId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
     // public ActionResult AddCategory(int id)
     // {
