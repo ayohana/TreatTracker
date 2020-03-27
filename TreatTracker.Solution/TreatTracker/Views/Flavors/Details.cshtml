@@ -23,5 +23,6 @@ else
 
 <p>@Html.ActionLink($"Edit {Model.Type} Flavor", "Edit", new { id = Model.FlavorId })</p>
 <p>@Html.ActionLink($"Add Treats To {Model.Type} Flavor", "AddTreat", new { id=Model.FlavorId})</p>
+<p>@Html.ActionLink($"Remove {Model.Type}", "Delete", new { id = Model.FlavorId })</p>
 <p>@Html.ActionLink("Back To All Flavors", "Index")</p>
 <p>@Html.ActionLink("Back To Home", "Index", "Home")</p>

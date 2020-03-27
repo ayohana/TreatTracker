@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+  ViewBag.Title = "Add Flavor To Treat";
+}
+
+@model TreatTracker.Models.Treat
+
+<h1>Add Flavor to @Model.Name</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+
+  @Html.Label("Select Flavor To Add:")
+  @Html.DropDownList("FlavorId")
+
+  <input type="submit" value="Add Flavor" />
+}
+
+<p>@Html.ActionLink($"Back to {Model.Name}", "Details", new { id = Model.TreatId })</p>
+<p>@Html.ActionLink("Back To All Treats", "Index")</p>
+<p>@Html.ActionLink("Back To Home", "Index", "Home")</p>

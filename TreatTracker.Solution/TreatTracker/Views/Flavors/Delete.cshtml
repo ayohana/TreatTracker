@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+  ViewBag.Title = "Remove Flavor";
+}
+
+@model TreatTracker.Models.Flavor
+
+<h1>Remove @Model.Type Flavor?</h1>
+<h4>You just clicked to remove @Model.Type Flavor.</h4>
+<h4>Are you sure you want to remove @Model.Type from your list of Flavors?</h4>
+
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Yes, please remove this Flavor." />
+}
+
+<p>@Html.ActionLink($"Back to {Model.Type}", "Details", new { id = Model.FlavorId })</p>
+<p>@Html.ActionLink("Back To All Flavors", "Index")</p>
+<p>@Html.ActionLink("Back To Home", "Index", "Home")</p>

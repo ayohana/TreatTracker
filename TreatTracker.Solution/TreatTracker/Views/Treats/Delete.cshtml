@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+  ViewBag.Title = "Remove Treat";
+}
+
+@model TreatTracker.Models.Treat
+
+<h1>Remove @Model.Name?</h1>
+<h4>You just clicked to remove @Model.Name.</h4>
+<h4>Are you sure you want to remove @Model.Name from your list of Treats?</h4>
+
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Yes, please remove this Treat." />
+}
+
+<p>@Html.ActionLink($"Back to {Model.Name}", "Details", new { id = Model.TreatId })</p>
+<p>@Html.ActionLink("Back To All Treats", "Index")</p>
+<p>@Html.ActionLink("Back To Home", "Index", "Home")</p>
