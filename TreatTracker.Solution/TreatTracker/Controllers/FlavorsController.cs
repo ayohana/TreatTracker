@@ -21,7 +21,6 @@ namespace TreatTracker.Controllers
       return View(_db.Flavors.ToList());
     }
 
-
     public ActionResult Details(int id)
     {
       var thisFlavor = _db.Flavors
@@ -45,6 +44,20 @@ namespace TreatTracker.Controllers
       {
         _db.TreatFlavor.Add(new TreatFlavor() { TreatId = TreatId, FlavorId = flavor.FlavorId });
       }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult Edit(int id)
+    {
+      var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      return View(thisFlavor);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Flavor flavor)
+    {
+      _db.Entry(flavor).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
