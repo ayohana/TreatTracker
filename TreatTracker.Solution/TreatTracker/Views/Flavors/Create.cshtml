@@ -9,7 +9,7 @@
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Type)
-  @Html.TextBoxFor(model => model.Type)
+  @Html.TextBoxFor(model => model.Type, new { @required="required" })
 
   @Html.Label("Select Treat")
   @Html.DropDownList("TreatId")
