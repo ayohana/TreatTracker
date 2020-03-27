@@ -12,7 +12,7 @@
   <h4>@Model.Type Treats:</h4>
   @foreach (var join in Model.Treats)
   {
-    <p>@Html.ActionLink($"{join.Treat.Name}", "Details", new { id = join.Treat.TreatId })</p>
+    <p>@Html.ActionLink($"{join.Treat.Name}", "Details", "Treats", new { id = join.Treat.TreatId })</p>
   }
 }
 else

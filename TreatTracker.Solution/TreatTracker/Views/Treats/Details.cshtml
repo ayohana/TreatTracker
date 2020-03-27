@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+  ViewBag.Title = "Treat Details";
+}
+
+@model TreatTracker.Models.Treat;
+
+<h1>@Model.Name</h1>
+
+@if (Model.Flavors.Any())
+{
+  <h4>@Model.Name's Flavor(s):</h4>
+  @foreach (var join in Model.Flavors)
+  {
+    <p>@Html.ActionLink($"{join.Flavor.Type}", "Details", "Flavors", new { id = join.Flavor.FlavorId })</p>
+  }
+}
+else
+{
+  <p>There are no flavors saved.</p>
+  <p>Click on "Add Flavors" below to add flavors to @Model.Name!</p>
+}
+
+<p>@Html.ActionLink($"Add Flavors To {Model.Name}", "AddFlavor", new { id = Model.TreatId })</p>
+<p>@Html.ActionLink("Back To All Treats", "Index")</p>
+<p>@Html.ActionLink("Back To Home", "Index", "Home")</p>
