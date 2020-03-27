@@ -6,6 +6,7 @@ namespace TreatTracker.Models
   public class Flavor
   {
     public int FlavorId { get; set; }
+    public string Type { get; set; }
     public ICollection<TreatFlavor> Treats { get; set; }
 
     public Flavor()

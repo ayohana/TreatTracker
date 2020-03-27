@@ -16,6 +16,10 @@
 * As the bakery owner, I also need to be able to select a flavor and see a list of treats that belong to that flavor.
 * As the developer, I need to establish many-to-many relationship between `Treats` and `Flavors` so that I can fulfil my client's request.
 
+## Parking Lot
+
+* Add a 3rd class of Ingredients (many-to-many relationship between Treats & Ingredients) to sort list/provide allergy warning.
+
 ## Specs
 
 <details>
@@ -39,9 +43,9 @@
 * Run the application.
   * Navigate into the `TreatTracker` directory `$ cd Desktop/TreatTracker/TreatTracker.Solution/TreatTracker`
     * Enter the command `dotnet restore` to gather tools and dependencies for the application.
+    * Enter the command `dotnet build` to build the project using its dependencies.
+    * Enter the command `dotnet ef database update` to create a new, empty database. 
     * Enter `dotnet run` to run the application.
-
-<!-- TODO: Add setup for migrations -->
 
 ## Known Bugs
 
