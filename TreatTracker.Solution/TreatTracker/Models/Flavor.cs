@@ -7,6 +7,7 @@ namespace TreatTracker.Models
   {
     public int FlavorId { get; set; }
     public string Type { get; set; }
+    public virtual ApplicationUser User { get; set; }
     public ICollection<TreatFlavor> Treats { get; set; }
 
     public Flavor()

@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TreatTracker.Models;
 
 namespace TreatTracker.Migrations
 {
     [DbContext(typeof(TreatTrackerContext))]
-    partial class TreatTrackerContextModelSnapshot : ModelSnapshot
+    [Migration("20200327225031_AuthorizationAllClasses")]
+    partial class AuthorizationAllClasses
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

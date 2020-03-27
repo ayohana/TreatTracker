@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TreatTracker.Models;
 
 namespace TreatTracker.Migrations
 {
     [DbContext(typeof(TreatTrackerContext))]
-    partial class TreatTrackerContextModelSnapshot : ModelSnapshot
+    [Migration("20200327220454_addIdentity")]
+    partial class addIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -181,11 +183,7 @@ namespace TreatTracker.Migrations
 
                     b.Property<string>("Type");
 
-                    b.Property<string>("UserId");
-
                     b.HasKey("FlavorId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Flavors");
                 });
@@ -197,11 +195,7 @@ namespace TreatTracker.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<string>("UserId");
-
                     b.HasKey("TreatId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Treats");
                 });
@@ -215,15 +209,11 @@ namespace TreatTracker.Migrations
 
                     b.Property<int>("TreatId");
 
-                    b.Property<string>("UserId");
-
                     b.HasKey("TreatFlavorId");
 
                     b.HasIndex("FlavorId");
 
                     b.HasIndex("TreatId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("TreatFlavor");
                 });
@@ -273,20 +263,6 @@ namespace TreatTracker.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TreatTracker.Models.Flavor", b =>
-                {
-                    b.HasOne("TreatTracker.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("TreatTracker.Models.Treat", b =>
-                {
-                    b.HasOne("TreatTracker.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
             modelBuilder.Entity("TreatTracker.Models.TreatFlavor", b =>
                 {
                     b.HasOne("TreatTracker.Models.Flavor", "Flavor")
@@ -298,10 +274,6 @@ namespace TreatTracker.Migrations
                         .WithMany("Flavors")
                         .HasForeignKey("TreatId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TreatTracker.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

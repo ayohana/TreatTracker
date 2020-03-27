@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using TreatTracker.Models;
 
 namespace TreatTracker
@@ -26,6 +27,9 @@ namespace TreatTracker
       services.AddEntityFrameworkMySql()
         .AddDbContext<TreatTrackerContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+      services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<TreatTrackerContext>()
+                .AddDefaultTokenProviders();
     }
 
     public void Configure(IApplicationBuilder app)
@@ -33,6 +37,8 @@ namespace TreatTracker
       app.UseStaticFiles();
 
       app.UseDeveloperExceptionPage();
+
+      app.UseAuthentication();
 
       app.UseMvc(routes =>
       {
