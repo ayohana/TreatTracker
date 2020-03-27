@@ -1,6 +1,6 @@
-# [Project Name](https://github.com/ayohana/ProjectName.git/)
+# [TreatTracker](https://github.com/ayohana/TreatTracker.git/)
 
-#### C# Basic Web Applications Exercise for [Epicodus](https://www.epicodus.com/), 03.20.2020
+#### C# Advanced Databases and Authentication Exercise for [Epicodus](https://www.epicodus.com/), 03.27.2020
 
 #### By [**Adela Darmansyah**](https://ayohana.github.io/portfolio/)
 
@@ -27,22 +27,22 @@
 
 * Download [.NET Core](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-c-and-net) (Mac/Windows OS) - _FREE!_
 * Download [MySQL](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql) (Mac/Windows OS) - _FREE!_
-* Clone this [repository](https://github.com/ayohana/ProjectName.git/)
+* Clone this [repository](https://github.com/ayohana/TreatTracker.git/)
   * Open the `Command Line Interface`.
   * Enter `$ cd Desktop` to navigate into your Desktop (or anywhere you'd like to save this repo into).
-  * Enter `$ git clone https://github.com/ayohana/ProjectName.git/`.
+  * Enter `$ git clone https://github.com/ayohana/TreatTracker.git/`.
 * Create your database.
   * Open the `Command Line Interface` (CLI).
   * Enter `mysql -uroot -p` and the CLI will prompt for your MYSQL password.
-  * Enter `CREATE DATABASE database_name;`
+  * Enter `CREATE DATABASE adela_darmansyah;`
   * Enter `SHOW DATABASES;` to confirm your database was created in your server's list of databases.
-  * Enter `USE database_name;` to connect to your database.
+  * Enter `USE adela_darmansyah;` to connect to your database.
   * Enter `SELECT DATABASE();` to verify you are connected to the correct database.
   * Enter `CREATE TABLE stylists (StylistID serial PRIMARY KEY, Name VARCHAR (255), Specialty VARCHAR (255), HireDate DATETIME);` to create your table of stylists.
   * Enter `CREATE TABLE clients (ClientID serial PRIMARY KEY, Name VARCHAR(255), StylistID INT);` to create your table of clients.
   * Enter `DESCRIBE stylists;` or `DESCRIBE clients` to see your table columns.
 * Run the application.
-  * Navigate into the `ProjectName` directory `$ cd Desktop/ProjectName/ProjectName.Solution/ProjectName`
+  * Navigate into the `TreatTracker` directory `$ cd Desktop/TreatTracker/TreatTracker.Solution/TreatTracker`
     * Enter the command `dotnet restore` to gather tools and dependencies for the application.
     * Enter `dotnet run` to run the application.
 

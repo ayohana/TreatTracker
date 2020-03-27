@@ -1,17 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using ProjectName.Models;
+using TreatTracker.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ProjectName.Controllers
+namespace TreatTracker.Controllers
 {
-  public class ClassesNameController : Controller
+  public class FlavorsController : Controller
   {
-    private readonly ProjectNameContext _db;
+    private readonly TreatTrackerContext _db;
 
-    public ClassesNameController(ProjectNameContext db)
+    public FlavorsController(TreatTrackerContext db)
     {
       _db = db;
     }
