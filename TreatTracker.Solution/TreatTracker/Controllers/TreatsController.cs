@@ -48,19 +48,19 @@ namespace TreatTracker.Controllers
       return RedirectToAction("Index");
     }
 
-    // public ActionResult Edit(int id)
-    // {
-    //   var thisCategory = _db.Categories.FirstOrDefault(category => category.CategoryId == id);
-    //   return View(thisCategory);
-    // }
+    public ActionResult Edit(int id)
+    {
+      var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      return View(thisTreat);
+    }
 
-    // [HttpPost]
-    // public ActionResult Edit(Category category)
-    // {
-    //   _db.Entry(category).State = EntityState.Modified;
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult Edit(Treat treat)
+    {
+      _db.Entry(treat).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
     // public ActionResult Delete(int id)
     // {

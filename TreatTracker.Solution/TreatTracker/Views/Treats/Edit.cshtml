@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+  ViewBag.Title = "Edit Treat";
+}
+
+@model TreatTracker.Models.Treat;
+
+<h1>Update @Model.Name</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+
+  @Html.Label("Name of Treat")
+  @Html.EditorFor(model => model.Name, new { @type = "text" })
+
+  <input type="submit" value="Save Changes"/>
+}
+
+<p>@Html.ActionLink($"Back to {Model.Name}", "Details", new { id = Model.TreatId })</p>
+<p>@Html.ActionLink("Back To All Treats", "Index")</p>
+<p>@Html.ActionLink("Back To Home", "Index", "Home")</p>
