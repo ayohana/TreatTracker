@@ -6,20 +6,28 @@
 
 ## Description
 
-**Describe project here**
+**This is a web application for Della's Bakery to keep track of their sweet and savory treats provided a user authentication.** Della will be able to create an account and log in to use the application. Once logged in, she will be able to enter her treats (e.g. chocolate croissants) and their flavors (e.g. sweet). Per Della's request, the application will list all treats and flavors. She will be able to see the details of an individual treat to see all the flavors that belong to it and vice versa.
 
 ## User Stories
 
-* As a ..., I want to be able to ... so that ...
+* As the bakery owner, I need to be able to see a list of all my treats.
+* As the bakery owner, I need to be able to add flavors belonging to a treat and vice versa.
+* As the bakery owner, I need to be able to select a treat, see their details and see a list of flavors that belong to that treat.
+* As the bakery owner, I also need to be able to select a flavor and see a list of treats that belong to that flavor.
+* As the developer, I need to establish many-to-many relationship between `Treats` and `Flavors` so that I can fulfil my client's request.
 
 ## Specs
 
 <details>
   <summary>Click to expand!</summary>
 
-| Spec | `Console` Input | `Console` Output |
+| Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
-| **Test** | input | output |
+| **The application will ask for user authentication prior to using the application.** | Log in | Welcome message and Log In form |
+| **The application displays a message when there are no treats/flavors saved in the database.** | Treats/Flavors page | "No treats/flavors added yet." |
+| **The application displays a splash page that lists all treats and flavors.** | Treats/Flavors page | List of all treats and flavors |
+| **The application will provide links to add a new treat/flavor** | Treats/Flavors page | Displays a form to fill out a new treat/flavor |
+| **The user clicks on a flavor and the application will display details of that flavor** | `Click:` "Sweet" | "Chocolate croissants, cupcakes, lollipops" |
 
 </details>
 
@@ -28,23 +36,12 @@
 * Download [.NET Core](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-c-and-net) (Mac/Windows OS) - _FREE!_
 * Download [MySQL](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql) (Mac/Windows OS) - _FREE!_
 * Clone this [repository](https://github.com/ayohana/TreatTracker.git/)
-  * Open the `Command Line Interface`.
-  * Enter `$ cd Desktop` to navigate into your Desktop (or anywhere you'd like to save this repo into).
-  * Enter `$ git clone https://github.com/ayohana/TreatTracker.git/`.
-* Create your database.
-  * Open the `Command Line Interface` (CLI).
-  * Enter `mysql -uroot -p` and the CLI will prompt for your MYSQL password.
-  * Enter `CREATE DATABASE adela_darmansyah;`
-  * Enter `SHOW DATABASES;` to confirm your database was created in your server's list of databases.
-  * Enter `USE adela_darmansyah;` to connect to your database.
-  * Enter `SELECT DATABASE();` to verify you are connected to the correct database.
-  * Enter `CREATE TABLE stylists (StylistID serial PRIMARY KEY, Name VARCHAR (255), Specialty VARCHAR (255), HireDate DATETIME);` to create your table of stylists.
-  * Enter `CREATE TABLE clients (ClientID serial PRIMARY KEY, Name VARCHAR(255), StylistID INT);` to create your table of clients.
-  * Enter `DESCRIBE stylists;` or `DESCRIBE clients` to see your table columns.
 * Run the application.
   * Navigate into the `TreatTracker` directory `$ cd Desktop/TreatTracker/TreatTracker.Solution/TreatTracker`
     * Enter the command `dotnet restore` to gather tools and dependencies for the application.
     * Enter `dotnet run` to run the application.
+
+<!-- TODO: Add setup for migrations -->
 
 ## Known Bugs
 
