@@ -16,24 +16,28 @@ namespace TreatTracker.Controllers
       _db = db;
     }
 
-    // public ActionResult Index()
-    // {
-    //   List<Category> model = _db.Categories.ToList();
-    //   return View(model);
-    // }
+    public ActionResult Index()
+    {
+      return View(_db.Treats.ToList());
+    }
 
-    // public ActionResult Create()
-    // {
-    //   return View();
-    // }
+    public ActionResult Create()
+    {
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Type");
+      return View();
+    }
 
-    // [HttpPost]
-    // public ActionResult Create(Category category)
-    // {
-    //   _db.Categories.Add(category);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult Create(Treat treat, int FlavorId)
+    {
+      _db.Treats.Add(treat);
+      if (FlavorId != 0)
+      {
+        _db.TreatFlavor.Add(new TreatFlavor() { FlavorId = FlavorId, TreatId = treat.TreatId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
     // public ActionResult Details(int id)
     // {
