@@ -1,3 +1,19 @@
+body {
+  background-image: url('../img/treats.jpg/');
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+label {
+  display: block;
+  margin: 10px;
+  white-space: pre-line;
+}
+
 input {
   margin-left: auto;
   margin-right: auto;
@@ -21,4 +37,8 @@ input[type=submit] {
   margin-right: auto; 
   margin-top: 5%;
   text-align: center;
+}
+
+.errorMessage {
+  color: red;
 }
