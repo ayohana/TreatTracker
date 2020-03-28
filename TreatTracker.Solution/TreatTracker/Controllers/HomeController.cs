@@ -30,6 +30,9 @@ namespace TreatTracker.Controllers
         Dictionary<int, string> userCompleteList = new Dictionary<int, string> ();
         var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         var currentUser = await _userManager.FindByIdAsync(userId);
+        if (currentUser == null) {
+          return View(userCompleteList);
+        }
         var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).OrderBy(flavor => flavor.Type).ToList();
         var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).OrderBy(treat => treat.Name).ToList();
         int number = 0;
