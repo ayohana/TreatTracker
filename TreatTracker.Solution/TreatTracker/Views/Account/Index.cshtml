@@ -7,6 +7,12 @@
 
 <h2>Authentication with Identity</h2>
 <hr />
+
+@if (TempData.ContainsKey("ErrorMessage"))
+{
+  <span class="errorMessage"><h4>@TempData["ErrorMessage"]</h4></span>
+}
+
 @if (User.Identity.IsAuthenticated)
 {
   <p>Hello @User.Identity.Name!</p>

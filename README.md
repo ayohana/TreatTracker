@@ -54,7 +54,9 @@
 
 ## Known Bugs
 
-No known bugs at this time.
+3/27/20 (unresolved):
+Occurs when a user enters URL `http://localhost:5000/`.
+Exception handling applied to prevent the application from crashing.
 
 ## Support and contact details
 
