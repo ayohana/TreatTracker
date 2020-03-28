@@ -43,9 +43,11 @@ namespace TreatTracker.Controllers
       return View(thisFlavor);
     }
 
-    public ActionResult Create()
+    public async Task<ActionResult> Create()
     {
-      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      ViewBag.TreatId = new SelectList(_db.Treats.Where(entry => entry.User.Id == currentUser.Id), "TreatId", "Name");
       return View();
     }
 
