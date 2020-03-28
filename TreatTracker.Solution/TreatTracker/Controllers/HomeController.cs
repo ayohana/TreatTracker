@@ -25,25 +25,34 @@ namespace TreatTracker.Controllers
 
     public async Task<ActionResult> Index()
     {
-      Dictionary<int, string> userCompleteList = new Dictionary<int, string> ();
-      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      var currentUser = await _userManager.FindByIdAsync(userId);
-      var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).OrderBy(flavor => flavor.Type).ToList();
-      var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).OrderBy(treat => treat.Name).ToList();
-      int number = 0;
-      userCompleteList.Add(number++, "ALL YOUR FLAVORS");
-      foreach (var flavor in userFlavors)
+      try
       {
-        userCompleteList.Add(number, flavor.Type);
-        number++;
+        Dictionary<int, string> userCompleteList = new Dictionary<int, string> ();
+        var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var currentUser = await _userManager.FindByIdAsync(userId);
+        var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).OrderBy(flavor => flavor.Type).ToList();
+        var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).OrderBy(treat => treat.Name).ToList();
+        int number = 0;
+        userCompleteList.Add(number++, "ALL YOUR FLAVORS");
+        foreach (var flavor in userFlavors)
+        {
+          userCompleteList.Add(number, flavor.Type);
+          number++;
+        }
+        userCompleteList.Add(number++, "ALL YOUR TREATS");
+        foreach(var treat in userTreats)
+        {
+          userCompleteList.Add(number, treat.Name);
+          number++;
+        }
+        return View(userCompleteList);
       }
-      userCompleteList.Add(number++, "ALL YOUR TREATS");
-      foreach(var treat in userTreats)
+      catch (Exception ex)
       {
-        userCompleteList.Add(number, treat.Name);
-        number++;
+        TempData["ErrorMessage"] = "An Exception Error occurred. Please see the Console for details.";
+        Console.WriteLine("Exception Error in Edit(): " + ex);
       }
-      return View(userCompleteList);
+      return RedirectToAction("Index", "Account");
     }
 
   }

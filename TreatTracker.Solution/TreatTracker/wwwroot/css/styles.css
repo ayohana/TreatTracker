@@ -1,3 +1,18 @@
+input {
+  margin-left: auto;
+  margin-right: auto;
+  width: 15em;
+}
+
+input[type=submit] {
+  display: block;
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
+  white-space: pre-line;
+}
+
 .content {
   background-color: rgba(220, 220, 220, 0.767);
   max-width: 50%;
