@@ -53,7 +53,7 @@ namespace TreatTracker.Controllers
       catch (Exception ex)
       {
         TempData["ErrorMessage"] = "An Exception Error occurred. Please see the Console for details.";
-        Console.WriteLine("Exception Error in Edit(): " + ex);
+        Console.WriteLine("Exception Error in Home Index: " + ex);
       }
       return RedirectToAction("Index", "Account");
     }
