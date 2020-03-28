@@ -115,7 +115,7 @@ namespace TreatTracker.Controllers
       var thisFlavor = _db.Flavors
         .Where(entry => entry.User.Id == currentUser.Id)
         .FirstOrDefault(flavors => flavors.FlavorId == id);
-      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
+      ViewBag.TreatId = new SelectList(_db.Treats.Where(entry => entry.User.Id == currentUser.Id), "TreatId", "Name");
       return View(thisFlavor);
     }
 
@@ -127,21 +127,20 @@ namespace TreatTracker.Controllers
       flavor.User = currentUser;
       if (TreatId != 0)
       {
-        _db.TreatFlavor.Add(new TreatFlavor() { TreatId = TreatId, FlavorId = flavor.FlavorId });
+        _db.TreatFlavor.Add(new TreatFlavor() { TreatId = TreatId, FlavorId = flavor.FlavorId, User = currentUser });
       }
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = flavor.FlavorId });
     }
 
     [HttpPost]
-    public ActionResult DeleteTreat(int joinId)
+    public async Task<ActionResult> DeleteTreat(int joinId)
     {
-      // var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      // var currentUser = await _userManager.FindByIdAsync(userId);
-      // var thisJoinEntry = _db.TreatFlavor
-      //   .Where(entry => entry.User.Id == currentUser.Id)
-      //   .FirstOrDefault(entry => entry.TreatFlavorId == joinId);
-      var thisJoinEntry = _db.TreatFlavor.FirstOrDefault(entry => entry.TreatFlavorId == joinId);
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var thisJoinEntry = _db.TreatFlavor
+        .Where(entry => entry.User.Id == currentUser.Id)
+        .FirstOrDefault(entry => entry.TreatFlavorId == joinId);
       int FlavorId = thisJoinEntry.FlavorId;
       _db.TreatFlavor.Remove(thisJoinEntry);
       _db.SaveChanges();
