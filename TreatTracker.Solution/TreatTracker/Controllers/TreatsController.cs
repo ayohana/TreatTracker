@@ -60,7 +60,7 @@ namespace TreatTracker.Controllers
       _db.Treats.Add(treat);
       if (FlavorId != 0)
       {
-        _db.TreatFlavor.Add(new TreatFlavor() { FlavorId = FlavorId, TreatId = treat.TreatId });
+        _db.TreatFlavor.Add(new TreatFlavor() { FlavorId = FlavorId, TreatId = treat.TreatId, User = currentUser });
       }
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -143,7 +143,7 @@ namespace TreatTracker.Controllers
       var thisJoinEntry = _db.TreatFlavor
         .Where(entry => entry.User.Id == currentUser.Id)
         .FirstOrDefault(entry => entry.TreatFlavorId == joinId);
-      int TreatId = thisJoinEntry.TreatId;
+      var TreatId = thisJoinEntry.TreatId;
       _db.TreatFlavor.Remove(thisJoinEntry);
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = TreatId });

@@ -50,6 +50,7 @@
     * Enter the command `dotnet build` to build the project using its dependencies.
     * Enter the command `dotnet ef database update` to create a new, empty database. 
     * Enter `dotnet run` to run the application.
+    * Enter URL `http://localhost:5000/` in your preferred browser.
 
 ## Known Bugs
 
