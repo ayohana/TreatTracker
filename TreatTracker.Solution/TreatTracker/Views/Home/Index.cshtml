@@ -3,7 +3,14 @@
   ViewBag.Title = "Home";
 }
 
+@model Dictionary<int, string>;
+
 <h1>Welcome to Della's Treat Tracker!</h1>
+
+@foreach (var name in @Model.Values)
+{
+  <p>@name</p>
+}
 
 <p>@Html.ActionLink("My Flavors", "Index", "Flavors")</p>
 <p>@Html.ActionLink("My Treats", "Index", "Treats")</p>
