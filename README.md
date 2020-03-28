@@ -6,7 +6,7 @@
 
 ## Description
 
-**This is a web application for Della's Bakery to keep track of their sweet and savory treats provided a user authentication.** Della will be able to create an account and log in to use the application. Once logged in, she will be able to enter her treats (e.g. chocolate croissants) and their flavors (e.g. sweet). Per Della's request, the application will list all treats and flavors. She will be able to see the details of an individual treat to see all the flavors that belong to it and vice versa.
+**This is a web application for Della's Bakery to keep track of their sweet and savory treats after a user is authenticated.** Della will be able to create an account and log in to use the application. Once logged in, she will be able to enter her treats (e.g. chocolate croissants) and their flavors (e.g. sweet). Per Della's request, the application will list all treats and flavors. She will be able to see the details of an individual treat to see all the flavors that belong to it and vice versa.
 
 ## User Stories
 
@@ -14,11 +14,14 @@
 * As the bakery owner, I need to be able to add flavors belonging to a treat and vice versa.
 * As the bakery owner, I need to be able to select a treat, see their details and see a list of flavors that belong to that treat.
 * As the bakery owner, I also need to be able to select a flavor and see a list of treats that belong to that flavor.
+* As the bakery owner, I want my branch managers to have their own separate accounts. I want my managers to be able to see their own treats and flavors listed on their respective accounts.
 * As the developer, I need to establish many-to-many relationship between `Treats` and `Flavors` so that I can fulfil my client's request.
+* As the developer, I want to authenticate users before they can use the application.
 
-## Parking Lot
+## Improvement Opportunities
 
-* Add a 3rd class of Ingredients (many-to-many relationship between Treats & Ingredients) to sort list/provide allergy warning.
+* Add a third class of `Ingredients` (many-to-many relationship between Treats & Ingredients) to sort list/provide allergy warning.
+* Have separate roles for admins and logged-in users. Only admins should be able to add, update and delete.
 
 ## Specs
 
@@ -29,9 +32,10 @@
 | :-------------     | :------------- | :------------- |
 | **The application will ask for user authentication prior to using the application.** | Log in | Welcome message and Log In form |
 | **The application displays a message when there are no treats/flavors saved in the database.** | Treats/Flavors page | "No treats/flavors added yet." |
-| **The application displays a splash page that lists all treats and flavors.** | Treats/Flavors page | List of all treats and flavors |
+| **The application displays a splash page that lists all treats/flavors** | Treats/Flavors page | List of all treats/flavors |
 | **The application will provide links to add a new treat/flavor** | Treats/Flavors page | Displays a form to fill out a new treat/flavor |
-| **The user clicks on a flavor and the application will display details of that flavor** | `Click:` "Sweet" | "Chocolate croissants, cupcakes, lollipops" |
+| **The user clicks on a flavor and the application will display a list of treats belonging to that flavor** | `Click:` "Sweet" | "Chocolate croissants, cupcakes, lollipops" |
+| **The user clicks on a treat and the application will display a list of flavors belonging to that treat** | `Click:` "Green Tea Mousse" | "Sweet, rich, creamy" |
 
 </details>
 
