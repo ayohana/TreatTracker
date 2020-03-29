@@ -34,7 +34,6 @@ namespace TreatTracker
 
     public void Configure(IApplicationBuilder app)
     {
-      app.UseStaticFiles();
 
       app.UseDeveloperExceptionPage();
 
@@ -46,6 +45,8 @@ namespace TreatTracker
           name: "default",
           template: "{controller=Home}/{action=Index}/{id?}");
       });
+
+      app.UseStaticFiles();
       
       app.Run(async (context) =>
       {

@@ -1,4 +1,4 @@
-# [TreatTracker](https://github.com/ayohana/TreatTracker.git/)
+# [Della Bakery's Treat Tracker](https://github.com/ayohana/TreatTracker.git/)
 
 #### C# Advanced Databases and Authentication Exercise for [Epicodus](https://www.epicodus.com/), 03.27.2020
 
@@ -7,6 +7,32 @@
 ## Description
 
 **This is a web application for Della's Bakery to keep track of their sweet and savory treats after a user is authenticated.** Della will be able to create an account and log in to use the application. Once logged in, she will be able to enter her treats (e.g. chocolate croissants) and their flavors (e.g. sweet). Per Della's request, the application will list all treats and flavors. She will be able to see the details of an individual treat to see all the flavors that belong to it and vice versa.
+
+## Screenshots
+
+##### Homepage:
+![Homepage of Treat Tracker](./Screenshots/Homepage.JPG/)
+
+##### List of flavors:
+![List of flavors](./Screenshots/Flavors.JPG/)
+
+##### Adding a new flavor:
+![Adding a new flavor](./Screenshots/AddNewFlavor.jpg/)
+
+##### A flavor's details:
+![A flavor's details page](./Screenshots/Espresso.JPG/)
+
+##### A treat's details:
+![A treat's details page](./Screenshots/TreatDetails.JPG/)
+
+##### Updating a treat:
+![Updating a treat](./Screenshots/UpdateTreat.JPG/)
+
+##### Removing a treat:
+![Removing a treat](./Screenshots/RemoveTreat.JPG/)
+
+##### Adding a flavor to a treat:
+![Adding a flavor to a treat](./Screenshots/AddFlavorToTreat.jpg/)
 
 ## User Stories
 

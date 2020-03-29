@@ -28,6 +28,7 @@ else
   <p>Click on "Add Treats" below to add @Model.Type-flavored Treats!</p>
 }
 
+<hr>
 <p>@Html.ActionLink($"Edit {Model.Type} Flavor", "Edit", new { id = Model.FlavorId })</p>
 <p>@Html.ActionLink($"Add Treats To {Model.Type} Flavor", "AddTreat", new { id=Model.FlavorId})</p>
 <p>@Html.ActionLink($"Remove {Model.Type}", "Delete", new { id = Model.FlavorId })</p>

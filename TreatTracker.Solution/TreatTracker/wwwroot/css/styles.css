@@ -1,3 +1,30 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image: url(../img/treats.jpg);
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  color: #4D3A4D;
+}
+
+h1 {
+  font-family: 'Sacramento', cursive;
+}
+
+a {  
+  color: #D967BC;
+  font-size: large;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #E89BD1;
+  text-decoration: underline;
+}
+
 label {
   display: block;
   margin: 10px;
@@ -20,7 +47,7 @@ input[type=submit] {
 }
 
 .content {
-  background-color: rgba(220, 220, 220, 0.767);
+  background-color: rgba(255, 245, 255, 0.842);
   max-width: 50%;
   padding: 10px;
   margin-left: auto;
